@@ -1,0 +1,25 @@
+#calc {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 150px;
+}
+
+#tela {
+    border: 1px solid black;
+    height: 30px;
+    text-align: end;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.botoes {
+    border: 1px solid black;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+}
