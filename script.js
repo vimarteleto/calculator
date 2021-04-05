@@ -39,28 +39,29 @@ function porcentagem(x, y) {
 
 // eventos
 let result // resultado
-const tela = document.getElementById('tela')
+const telaPrincipal = document.getElementById('tela-principal')
+const telaSecundaria = document.getElementById('tela-secundaria')
 const numeros = document.querySelectorAll('.botoes-numero')
 numeros.forEach(numero => {
     numero.addEventListener('click', () => {
         // se existe um resultado prévio, receber novo valor para tela e desconsiderar o resultado
         if(result) {
-            tela.textContent = numero.textContent
+            telaPrincipal.textContent = numero.textContent
             result = ''
         }
         // se nao existe resultado, concatenar os botoes clicados
         else {
-            tela.textContent += numero.textContent
-        }
-        
+            telaPrincipal.textContent += numero.textContent
+        }        
     })
 })
 
 const operacao = document.querySelectorAll('.botoes-operacao')
 operacao.forEach(opera => {
     opera.addEventListener('click', () => {
-        x = Number(tela.textContent)
-        tela.textContent = ''
+        x = Number(telaPrincipal.textContent)
+        telaSecundaria.textContent = `${telaPrincipal.textContent} ${opera.textContent}`
+        telaPrincipal.textContent = ''
         // capturar o id do botao-operacao como function, e nao como string
         f = window[opera.getAttribute('id')]
     })
@@ -68,14 +69,17 @@ operacao.forEach(opera => {
 
 const igual = document.getElementById('igual')
 igual.addEventListener('click', () => {
-    y = Number(tela.textContent)
+    y = Number(telaPrincipal.textContent)
     if(f) {
         result = operate(f, x, y)
-        tela.textContent = result
+        telaPrincipal.textContent = result
     }  
+    telaSecundaria.textContent += ' ' + y
 })
 
 const ac = document.getElementById('ac')
 ac.addEventListener('click', () => {
-    x, y, f, result, tela.textContent = ''
+    x, y, f, result = ''
+    telaPrincipal.textContent = ''
+    telaSecundaria.textContent = ''
 })

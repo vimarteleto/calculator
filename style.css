@@ -25,3 +25,8 @@
     height: 35px;
     text-align: center;
 }
+
+#tela-secundaria {
+    font-size: smaller;
+    color: rgb(85, 85, 85)
+}
