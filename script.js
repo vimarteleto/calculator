@@ -1,3 +1,8 @@
+// variaveis
+let x // primeiro fator
+let y // segundo fator
+let f // operacao
+
 // operações
 function operate(f, x, y) {
     return f(x, y)
@@ -28,29 +33,36 @@ function root(x, y) {
 }
 
 function porcentagem(x) {
-    return x * 0.01
+    return x * 0.01 * y
     
 }
 
-console.log(operate(root, 25, 2))
-
 // eventos
-let operacao
-let x // primeiro fator
-let y // segundo fator
-let f // operacao
 let result // resultado
 const tela = document.getElementById('tela')
 const numeros = document.querySelectorAll('.botoes-numero')
 numeros.forEach(numero => {
     numero.addEventListener('click', () => {
+        // se existe um resultado prévio, receber novo valor para tela e desconsiderar o resultado
         if(result) {
             tela.textContent = numero.textContent
+            result = ''
         }
+        // se nao existe resultado, concatenar os botoes clicados
         else {
             tela.textContent += numero.textContent
         }
         
+    })
+})
+
+const operacao = document.querySelectorAll('.botoes-operacao')
+operacao.forEach(opera => {
+    opera.addEventListener('click', () => {
+        x = Number(tela.textContent)
+        tela.textContent = ''
+        // capturar o id do botao-operacao como function, e nao como string
+        f = window[opera.getAttribute('id')]
     })
 })
 
@@ -61,27 +73,9 @@ igual.addEventListener('click', () => {
         result = operate(f, x, y)
         tela.textContent = result
     }  
-    console.log(y) 
-    console.log(result)
-})
-
-const soma = document.getElementById('soma')
-soma.addEventListener('click', () => {
-    x = Number(tela.textContent)
-    tela.textContent = ''
-    f = add
-    console.log(x)
-    console.log(f)
 })
 
 const ac = document.getElementById('ac')
 ac.addEventListener('click', () => {
-    x = ''
-    y = ''
-    f = ''
-    result = ''
-    tela.textContent = ''
+    x, y, f, result, tela.textContent = ''
 })
-
-
-

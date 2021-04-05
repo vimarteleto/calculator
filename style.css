@@ -18,7 +18,8 @@
 }
 
 .botoes,
-.botoes-numero {
+.botoes-numero,
+.botoes-operacao {
     border: 1px solid black;
     width: 75px;
     height: 35px;
