@@ -32,7 +32,7 @@ function root(x, y) {
     return x ** (1/y)
 }
 
-function porcentagem(x) {
+function porcentagem(x, y) {
     return x * 0.01 * y
     
 }
