@@ -17,7 +17,8 @@
     flex-direction: row;    
 }
 
-.botoes {
+.botoes,
+.botoes-numero {
     border: 1px solid black;
     width: 75px;
     height: 35px;
