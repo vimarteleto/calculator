@@ -83,3 +83,5 @@ ac.addEventListener('click', () => {
     telaPrincipal.textContent = ''
     telaSecundaria.textContent = ''
 })
+
+// AJUSTAR TELASECUNDARIA PARA RAIZ
