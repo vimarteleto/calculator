@@ -73,7 +73,6 @@ igual.addEventListener('click', () => {
     if(f) {
         result = operate(f, x, y)
         telaPrincipal.textContent = result
-
     }  
     telaSecundaria.textContent += ' ' + y
 })
