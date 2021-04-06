@@ -1,8 +1,17 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
 #calc {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 300px;
+    background-color:rgba(221, 221, 221, 0.575);
+    margin-top: 10em;
+
 }
 
 #tela {

@@ -56,14 +56,14 @@ numeros.forEach(numero => {
     })
 })
 
-const operacao = document.querySelectorAll('.botoes-operacao')
-operacao.forEach(opera => {
-    opera.addEventListener('click', () => {
+const operacoes = document.querySelectorAll('.botoes-operacao')
+operacoes.forEach(operacao => {
+    operacao.addEventListener('click', () => {
         x = Number(telaPrincipal.textContent)
-        telaSecundaria.textContent = `${telaPrincipal.textContent} ${opera.textContent}`
+        telaSecundaria.textContent = `${telaPrincipal.textContent} ${operacao.textContent}`
         telaPrincipal.textContent = ''
         // capturar o id do botao-operacao como function, e nao como string
-        f = window[opera.getAttribute('id')]
+        f = window[operacao.getAttribute('id')]
     })
 })
 
@@ -73,6 +73,7 @@ igual.addEventListener('click', () => {
     if(f) {
         result = operate(f, x, y)
         telaPrincipal.textContent = result
+
     }  
     telaSecundaria.textContent += ' ' + y
 })
@@ -84,4 +85,5 @@ ac.addEventListener('click', () => {
     telaSecundaria.textContent = ''
 })
 
-// AJUSTAR TELASECUNDARIA PARA RAIZ
+// AJUSTAR TELA SECUNDARIA PARA RAIZ
+// AJUSTAR APERTAR VARIAS VEZES A TECLA IGUAL =
