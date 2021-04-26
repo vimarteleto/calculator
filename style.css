@@ -10,14 +10,20 @@ body {
     flex-direction: column;
     width: 300px;
     background-color:rgba(221, 221, 221, 0.575);
-    margin-top: 10em;
+    margin-top: 10rem;
+    border: 1rem solid rgba(19, 18, 18, 0.575);
+    border-radius: 10px;
+    line-height: 2rem;
 
 }
 
-#tela {
+#screen {
     border: 1px solid black;
     height: 50px;
     text-align: end;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .rows {
@@ -26,16 +32,11 @@ body {
     flex-direction: row;    
 }
 
-.botoes,
-.botoes-numero,
-.botoes-operacao {
+.button,
+.button-number,
+.button-operation {
     border: 1px solid black;
     width: 75px;
     height: 35px;
     text-align: center;
-}
-
-#tela-secundaria {
-    font-size: smaller;
-    color: rgb(85, 85, 85)
 }

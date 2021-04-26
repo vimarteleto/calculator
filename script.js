@@ -1,8 +1,6 @@
-// variaveis
-let x // primeiro fator
-let y // segundo fator
-let f // operacao
-
+let f
+let x
+let y
 // operações
 function operate(f, x, y) {
     return f(x, y)
@@ -29,60 +27,47 @@ function pow(x, y) {
 }
 
 function root(x, y) {
-    return x ** (1/y)
+    return x ** (1 / y)
 }
 
-function porcentagem(x, y) {
-    return x * 0.01 * y
-    
+function percentage(x, y) {
+    return x * 0.01 * y    
 }
 
-// eventos
-let result // resultado
-const telaPrincipal = document.getElementById('tela-principal')
-const telaSecundaria = document.getElementById('tela-secundaria')
-const numeros = document.querySelectorAll('.botoes-numero')
-numeros.forEach(numero => {
-    numero.addEventListener('click', () => {
-        // se existe um resultado prévio, receber novo valor para tela e desconsiderar o resultado
-        if(result) {
-            telaPrincipal.textContent = numero.textContent
-            result = ''
+// elementos
+const screen = document.getElementById('screen')
+
+const numbers = document.querySelectorAll('.button-number')
+numbers.forEach(number => {
+    number.addEventListener('click', () => {
+        if(screen.textContent.length < 12) {
+            screen.textContent += number.textContent
         }
-        // se nao existe resultado, concatenar os botoes clicados
-        else {
-            telaPrincipal.textContent += numero.textContent
-        }        
     })
 })
 
-const operacoes = document.querySelectorAll('.botoes-operacao')
-operacoes.forEach(operacao => {
-    operacao.addEventListener('click', () => {
-        x = Number(telaPrincipal.textContent)
-        telaSecundaria.textContent = `${telaPrincipal.textContent} ${operacao.textContent}`
-        telaPrincipal.textContent = ''
-        // capturar o id do botao-operacao como function, e nao como string
-        f = window[operacao.getAttribute('id')]
+const operations = document.querySelectorAll('.button-operation')
+operations.forEach(operation => {
+    operation.addEventListener('click', () => {
+        if(!f) {
+
+            f = window[operation.getAttribute('id')]
+
+        } else {
+
+        }
     })
 })
 
-const igual = document.getElementById('igual')
-igual.addEventListener('click', () => {
-    y = Number(telaPrincipal.textContent)
-    if(f) {
-        result = operate(f, x, y)
-        telaPrincipal.textContent = result
-    }  
-    telaSecundaria.textContent += ' ' + y
-})
+ac.addEventListener('click', Allclear)
+function Allclear() {
+    screen.textContent = undefined
+    f = undefined
+    x = undefined
+    y = undefined
+}
 
-const ac = document.getElementById('ac')
-ac.addEventListener('click', () => {
-    x, y, f, result = ''
-    telaPrincipal.textContent = ''
-    telaSecundaria.textContent = ''
-})
-
-// AJUSTAR TELA SECUNDARIA PARA RAIZ
-// AJUSTAR APERTAR VARIAS VEZES A TECLA IGUAL =
+function clearFunction() {
+    screen.textContent = undefined
+    f = undefined
+}
