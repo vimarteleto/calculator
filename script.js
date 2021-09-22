@@ -51,8 +51,8 @@ const screen = document.getElementById('screen')
 const numbers = document.querySelectorAll('.button-number')
 numbers.forEach(number => {
     number.addEventListener('click', () => {      
-        if(screen.textContent == 'Too big!' || screen.textContent == 'Invalid!') {
-            Allclear()
+        if(screen.textContent == 'Invalid!') {
+            allClear()
         }
         if(screen.textContent.length < 12) {
             screen.textContent += number.textContent
@@ -91,23 +91,25 @@ operations.forEach(operation => {
 // botao de igual e calculo do resultado
 equal.addEventListener('click', setResult)
 function setResult() {
-    result = operate(f, x, y).toFixed(10)
-    if(result.toString().length > 12) {
-        Allclear()
-        screen.textContent = 'Too big!'
-    } else {
-        screen.textContent = result
-    }
+    result = operate(f, x, y)
+    intResult = Math.trunc(result)
+    console.log(result, intResult)
     if(result == Infinity) {
-        Allclear()
-        screen.textContent = 'Invalid!'
-        
+        allClear()
+        screen.textContent = 'Invalid!'   
+
+    } else if(intResult.toString().length > 10) {
+        allClear()
+        screen.textContent = 'Too big!'  
+
+    } else {
+        screen.textContent = result.toString().substr(0, 12)        
     }
 }
 
 // botao de limpeza
-ac.addEventListener('click', Allclear)
-function Allclear() {
+ac.addEventListener('click', allClear)
+function allClear() {
     screen.textContent = undefined
     f = undefined
     x = undefined
