@@ -51,7 +51,7 @@ const screen = document.getElementById('screen')
 const numbers = document.querySelectorAll('.button-number')
 numbers.forEach(number => {
     number.addEventListener('click', () => {      
-        if(screen.textContent == 'Invalid!') {
+        if(screen.textContent == 'Invalid!' || screen.textContent == 'Too big!') {
             allClear()
         }
         if(screen.textContent.length < 12) {
